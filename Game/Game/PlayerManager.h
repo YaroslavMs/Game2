@@ -4,13 +4,19 @@
 class PlayerManager
 {
 public:
-	void CreatePlayer(Player a) {
-		std::cout << "Type player's name: ";
+	Player CreatePlayer(Player a,int i) {
+		std::cout << "Type player's " << i + 1 <<" name: ";
 		std::cin >> a.Name;
+		return a;
 	}
-	void DeletePlayer(Player a) {
+	Player SetId(Player a, int i) {
+		a.id = i;
+		return a;
+	}
+	Player DeletePlayer(Player a) {
 		a.Name = "";
-		a.Rank = "";
+		a.Rank = 0;
+		return a;
 	}
 	void ShowPlayerInfo(Player a) {
 		std::cout << "###############\nPlayer info:\nName: " << a.Name << "\nRank: " << a.Rank << std::endl;

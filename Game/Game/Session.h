@@ -2,8 +2,10 @@
 #include "TeamManager.h"
 class Session
 {
-	Team one, two, winner;
+	TeamManager man;
+	
 public:
+	Team one, two, winner;
 	bool StartTime() {
 		 bool choose = false;
 		 bool start = false;
@@ -19,7 +21,7 @@ public:
 			std::cout << "Closing program..." << std::endl;
 			choose = true;
 		 }
-		 else std::cout << "Invalid option" << std::endl;
+		 if (yesno != "y" && yesno != "n") std::cout << "Invalid option" << std::endl;
 	   }
 		return start;
 	}
@@ -29,9 +31,10 @@ public:
 	void TeamTwo(Team two) {
 		this->two = two;
 	}
-	void CalculateWinner() {
+	bool CalculateWinner() {
+		bool win1 = true;
 		int hpone = 0, hptwo = 0;
-		for (int i = 5; i < 5; i++) {
+		for (int i = 0; i < 5; i++) {
 			hpone += (one.hero[i].hp - two.hero[i].dmg);
 			hptwo += (two.hero[i].hp - one.hero[i].dmg);
 		}
@@ -40,10 +43,13 @@ public:
 		}
 		if (hpone < hptwo) {
 			winner = two;
+			win1 = false;
 		}
+		return win1;
 	}
 	void Winner() {
-
+		std::cout << "\n\nWinner" << std::endl;
+		man.GetTeamInfo(winner);
 	}
 };
 

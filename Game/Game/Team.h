@@ -4,9 +4,11 @@
 
 class Team
 {
-	Player player[5];
+	
 	Hero hero[5];
 	std::string name;
+public:
+	Player player[5];
 	friend class TeamManager;
 	friend class Session;
 };

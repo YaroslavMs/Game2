@@ -1,0 +1,4 @@
+﻿  Game.cpp
+D:\Game2\Game2\Game\Game\Game.cpp(4,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+D:\Game2\Game2\Game\Game\Game.cpp(7,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  Game.vcxproj -> D:\Game2\Game2\Game\Debug\Game.exe

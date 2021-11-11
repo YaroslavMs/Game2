@@ -3,18 +3,24 @@
 class HeroManager
 {
 public:
-	void CreateHero(int hp, int dmg, std::string Name, Hero a) {
+	Hero CreateHero(int hp, int dmg, std::string Name, Hero a) {
 		a.hp = hp;
 		a.dmg = dmg;
 		a.Name = Name;
+		return a;
 	}
-	void DeleteHero(Hero a) {
+	Hero SetId(Hero a, int i) {
+		a.id = i;
+		return a;
+	}
+	Hero DeleteHero(Hero a) {
 		a.hp = 0;
 		a.dmg = 0;
 		a.Name = "";
+		return a;
 	}
 	void ShowHeroInfo(Hero a) {
-		std::cout << "###############\nHero info:\nName: " << a.Name << "\nHp: " << a.hp <<"\ndamage: " << a.dmg << std::endl;
+		std::cout << "Hero info:\nName: " << a.Name << "\nHp: " << a.hp <<"\ndamage: " << a.dmg << std::endl;
 	}
 };
 

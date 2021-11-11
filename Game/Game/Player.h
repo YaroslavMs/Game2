@@ -3,8 +3,10 @@
 #include <vector>
 class Player
 {
-	int id;
-	std::string Name, Rank;
+	
+	std::string Name;
+public:
+	int id, Rank = 0;
 	friend class PlayerManager;
 };
 
