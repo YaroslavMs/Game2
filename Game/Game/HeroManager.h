@@ -22,5 +22,19 @@ public:
 	void ShowHeroInfo(Hero a) {
 		std::cout << "Hero info:\nName: " << a.Name << "\nHp: " << a.hp <<"\ndamage: " << a.dmg << std::endl;
 	}
+	Hero GetHeroByName(Hero a[10], std::string name) {
+		for (int i = 0; i < 10; i++) {
+			if (a[i].Name == name) {
+				return a[i];
+			}
+		}
+	}
+	Hero GetHeroById(Hero a[10], int id) {
+		for (int i = 0; i < 10; i++) {
+			if (a[i].id == id) {
+				return a[i];
+			}
+		}
+	}
 };
 

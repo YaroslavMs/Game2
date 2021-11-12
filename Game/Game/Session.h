@@ -5,7 +5,7 @@ class Session
 	TeamManager man;
 	
 public:
-	Team one, two, winner;
+	Team one, two, winner, loser;
 	bool StartTime() {
 		 bool choose = false;
 		 bool start = false;
@@ -40,9 +40,11 @@ public:
 		}
 		if (hpone > hptwo) {
 			winner = one;
+			loser = two;
 		}
 		if (hpone < hptwo) {
 			winner = two;
+			loser = one;
 			win1 = false;
 		}
 		return win1;
@@ -50,6 +52,10 @@ public:
 	void Winner() {
 		std::cout << "\n\nWinner" << std::endl;
 		man.GetTeamInfo(winner);
+	}
+	void Loser() {
+		std::cout << "\n\nLoser" << std::endl;
+		man.GetTeamInfo(loser);
 	}
 };
 

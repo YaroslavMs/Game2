@@ -16,16 +16,16 @@ int main()
 	Hero heroes[10];
 	Hero hone[5], htwo[5];
 	
-	heroes[0] = heromanager.CreateHero(50, 55, "Young Sorcerrer", heroes[0]);
+	heroes[0] = heromanager.CreateHero(50, 55, "Young_Sorcerrer", heroes[0]);
 	heroes[1] = heromanager.CreateHero(100, 30, "Warrior", heroes[1]);
 	heroes[2] = heromanager.CreateHero(120, 25, "Fighter", heroes[2]);
 	heroes[3] = heromanager.CreateHero(200, 5, "Giant", heroes[3]);
 	heroes[4] = heromanager.CreateHero(50, 50, "Sniper", heroes[4]);
 	heroes[5] = heromanager.CreateHero(40, 60, "Mage", heroes[5]);
-	heroes[6] = heromanager.CreateHero(35, 75, "Higher Mage", heroes[6]);
+	heroes[6] = heromanager.CreateHero(35, 75, "Higher_Mage", heroes[6]);
 	heroes[7] = heromanager.CreateHero(80, 35, "Shooter", heroes[7]);
-	heroes[8] = heromanager.CreateHero(20, 120, "Dark sorcerrer", heroes[8]);
-	heroes[9] = heromanager.CreateHero(70, 15, "Weapon carrier", heroes[9]);
+	heroes[8] = heromanager.CreateHero(20, 120, "Dark_sorcerrer", heroes[8]);
+	heroes[9] = heromanager.CreateHero(70, 15, "Weapon_carrier", heroes[9]);
 	for (int i = 0; i < 10; i++) {
 		players[i] = playermanager.CreatePlayer(players[i], i);
 
@@ -55,29 +55,27 @@ int main()
 			players[i] = playermanager.SetId(players[i], m[i]);
 			heroes[i] = heromanager.SetId(heroes[i], v[i]);
 		}
-		int j = 0;
-		int d = 0;
+		int p1 = 0, p2 = 0, h1 = 0, h2 = 0;
 		for (int i = 0; i < 10; i++) {
 			if (players[i].id <= 5) {
-				pone[j] = players[i];
-				j++;
+				pone[p1] = players[i];
+				p1++;
 			}
 			else {
-				ptwo[d] = players[i];
-				d++;
+				ptwo[p2] = players[i];
+				p2++;
 			}
-		}
-		j = 0; d = 0;
-		for (int i = 0; i < 10; i++) {
 			if (heroes[i].id <= 5) {
-				hone[j] = heroes[i];
-				j++;
+				hone[h1] = heroes[i];
+				h1++;
 			}
 			else {
-				htwo[d] = heroes[i];
-				d++;
+				htwo[h2] = heroes[i];
+				h2++;
 			}
 		}
+	
+			
 		std::string name1, name2;
 		std::cout << "First team name: ";
 		std::cin >> name1;
@@ -87,7 +85,7 @@ int main()
 		teamtwo = teammanager.GenerateNewTeam(ptwo, htwo, name1);
 		session.TeamOne(teamone);
 		session.TeamTwo(teamtwo);
-		j = 0;
+		int j = 0;
 		if (session.CalculateWinner() == true) {
 			for (int i = 0; i < 10; i++) {
 				if (players[i].id <= 5) {
@@ -113,6 +111,13 @@ int main()
 		gamemanager.PerformGameSession(session);
 	}
 	gamemanager.Info();
+	std::string name;
+	std::cout << "\n\nType player's name to check his info: " << std::endl;
+	std::cin >> name;
+	playermanager.ShowPlayerInfo(playermanager.GetPlayerByName(players,name));
+	std::cout << "\n\nType hero's name to check his info: " << std::endl;
+	std::cin >> name;
+	heromanager.ShowHeroInfo(heromanager.GetHeroByName(heroes, name));
 }
 
 
