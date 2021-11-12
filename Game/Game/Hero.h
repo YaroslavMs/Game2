@@ -3,10 +3,10 @@
 
 class Hero
 {
-	int hp, dmg;
+	int hp, dmg, id;
 	std::string Name;
 public:
-	int id;
+	
 	friend class HeroManager;
 	friend class Session;
 };

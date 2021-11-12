@@ -3,10 +3,11 @@
 class HeroManager
 {
 public:
-	Hero CreateHero(int hp, int dmg, std::string Name, Hero a) {
+	Hero CreateHero(int hp, int dmg, int id, std::string Name, Hero a) {
 		a.hp = hp;
 		a.dmg = dmg;
 		a.Name = Name;
+		a.id = id;
 		return a;
 	}
 	Hero SetId(Hero a, int i) {
@@ -20,7 +21,7 @@ public:
 		return a;
 	}
 	void ShowHeroInfo(Hero a) {
-		std::cout << "Hero info:\nName: " << a.Name << "\nHp: " << a.hp <<"\ndamage: " << a.dmg << std::endl;
+		std::cout << "Hero info:\nName: " << a.Name << "\nHp: " << a.hp <<"\ndamage: " << a.dmg <<"\nId: " << a.id << std::endl;
 	}
 	Hero GetHeroByName(Hero a[10], std::string name) {
 		for (int i = 0; i < 10; i++) {
@@ -28,6 +29,8 @@ public:
 				return a[i];
 			}
 		}
+		std::cout << "Name not found. Showing hero with id 1" << std::endl;
+		return a[0];
 	}
 	Hero GetHeroById(Hero a[10], int id) {
 		for (int i = 0; i < 10; i++) {
@@ -35,6 +38,8 @@ public:
 				return a[i];
 			}
 		}
+		std::cout << "Id not found. Showing hero with id 1 " << std::endl;
+		return a[0];
 	}
 };
 

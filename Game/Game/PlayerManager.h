@@ -19,7 +19,7 @@ public:
 		return a;
 	}
 	void ShowPlayerInfo(Player a) {
-		std::cout << "###############\nPlayer info:\nName: " << a.Name << "\nRank: " << a.Rank << std::endl;
+		std::cout << "###############\nPlayer info:\nName: " << a.Name << "\nRank: " << a.Rank << "\nId: " << a.id << std::endl;
 	}
 	Player GetPlayerByName(Player a[10], std::string name) {
 		for (int i = 0; i < 10; i++) {
@@ -27,6 +27,8 @@ public:
 				return a[i];
 			}
 		}
+		std::cout << "Name not found. Showing player with id 1" << std::endl;
+		return a[0];
 	}
 	Player GetPlayerById(Player a[10], int id) {
 		for (int i = 0; i < 10; i++) {
@@ -34,6 +36,8 @@ public:
 				return a[i];
 			}
 		}
+		std::cout << "Name not found. Showing player with id 1" << std::endl;
+		return a[0];
 	}
 };
 
