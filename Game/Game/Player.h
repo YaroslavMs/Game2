@@ -6,7 +6,8 @@ class Player
 	
 	std::string Name;
 public:
-	int id, Rank = 0;
+	int id;
+	int Rank = 0;
 	friend class PlayerManager;
 };
 
